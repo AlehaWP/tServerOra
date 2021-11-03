@@ -31,7 +31,11 @@ func (s *ServerRepo) SaveCard(ctx context.Context, cTC *models.CardTC) error {
 	tx := db.MustBegin()
 	defer tx.Rollback()
 	tx.MustExec("INSERT INTO viewblank (datestart, journal_uuid, fio, numtc, markatc) VALUES (sysdate, :journal_uuid, :fio, :numtc, :markatc)",
-		NewGuuid(), cTC.DriverName, cTC.NumTC, cTC.ModelTC)
+		NewGuuid(),
+		string([]rune(cTC.DriverName)[0:100]),
+		string([]rune(cTC.NumTC)[0:20]),
+		string([]rune(cTC.ModelTC)[0:30]))
+
 	tx.Commit()
 
 	return nil
