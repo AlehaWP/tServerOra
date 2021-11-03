@@ -28,6 +28,13 @@ func HandlerTCPost(w http.ResponseWriter, r *http.Request) {
 	cTC := new(models.CardTC)
 	cTC.DriverName = r.FormValue("driver_name")
 	cTC.ModelTC = r.FormValue("model_tc")
+	cTC.NumTC = r.FormValue("num_tc")
+	cTC.NumPric = r.FormValue("num_pric")
+	cTC.NumPlomb = r.FormValue("num_plomb")
+	cTC.ContNum = r.FormValue("cont_num")
+	cTC.Remark = r.FormValue("remark")
+	cTC.TypeTC = r.FormValue("type_tc")
+	cTC.SizeTC = r.FormValue("size_tc")
 
 	// err = json.Unmarshal(text, cTC)
 	// if err != nil {

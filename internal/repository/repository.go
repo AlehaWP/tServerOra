@@ -30,11 +30,20 @@ func (s *ServerRepo) SaveCard(ctx context.Context, cTC *models.CardTC) error {
 	db := s.db
 	tx := db.MustBegin()
 	defer tx.Rollback()
-	tx.MustExec("INSERT INTO viewblank (datestart, journal_uuid, fio, numtc, markatc) VALUES (sysdate, :journal_uuid, :fio, :numtc, :markatc)",
+	//string([]rune(cTC.DriverName)[0:100]),
+	//string([]rune(cTC.NumTC)[0:20]),
+	//string([]rune(cTC.ModelTC)[0:30]))
+	tx.MustExec("INSERT INTO viewblank (datestart, journal_uuid, fio, numtc, markatc, numpricep, plomb1, container1, typetc, sizetc, damage) VALUES (sysdate, :journal_uuid, :fio, :numtc, :markatc, :numpricep, :plomb1, :container1, :typetc, :sizetc, :damage)",
 		NewGuuid(),
-		string([]rune(cTC.DriverName)[0:100]),
-		string([]rune(cTC.NumTC)[0:20]),
-		string([]rune(cTC.ModelTC)[0:30]))
+		strings.TrimSpace(cTC.DriverName),
+		strings.TrimSpace(cTC.NumTC),
+		strings.TrimSpace(cTC.ModelTC),
+		strings.TrimSpace(cTC.NumPric),
+		strings.TrimSpace(cTC.NumPlomb),
+		strings.TrimSpace(cTC.ContNum),
+		strings.TrimSpace(cTC.TypeTC),
+		strings.TrimSpace(cTC.SizeTC),
+		strings.TrimSpace(cTC.Remark))
 
 	tx.Commit()
 
@@ -59,5 +68,5 @@ func (s *ServerRepo) CreateUser(ctx context.Context) (string, error) {
 
 	return urEnc, nil
 	*/
-	return "12345", nil
+	return " ", nil
 }
