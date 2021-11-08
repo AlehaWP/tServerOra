@@ -39,6 +39,8 @@ function defaultValue() {
     document.getElementById('timein').value = time_();
 }
 
+defaultValue()
+
 /*отправка формы*/
 var form = document.querySelector('.form_main');
 
