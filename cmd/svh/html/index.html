@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Добавление бланка</title>
+  <link href="css/style.css" rel="stylesheet" type="text/css"/>
+  <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon" />
+</head>
+<body>
+  <div id="contact-form" class="form-container">
+    <h1>Добавление бланка</h1>
+    <form class= "form_main" method="post" action="http://localhost:8080/api/savetc">
+      <div class= "frm">
+        <label for="datein">Дата въезда:</label>
+        <input type="date" name="datein" id="datein">
+      </div>
+      <div class= "frm">
+        <label for="timein">Время въезда:</label>
+        <input type="time" name="timein" id="timein">
+      </div>
+      <div class= "frm">
+        <label for="driver_name">Водитель</label>
+        <input type="text" name="driver_name" id="driver_name">
+      </div>
+      <div class= "frm">
+        <label for="model_tc">Марка ТС</label>
+        <select name="model_tc" id="model_tc">
+          <option value="">Выберите марку ТС</option>
+          <option value="Mercedes">Mercedes</option>
+          <option value="Volvo">Volvo</option>
+          <option value="Scania">Scania</option>
+        </select>
+      </div>
+      <div class= "frm">
+        <label for="type_tc">Тип ТС</label>
+        <select name="type_tc" id="type_tc" placeholder="Выберите тип ТС">
+          <option value="">Выберите тип ТС</option>
+          <option value="Tent">Тент</option>
+          <option value="Ref">Ref</option>
+          <option value="Container">Контейнер</option>
+        </select>
+      </div>
+      <div class= "frm">
+        <label for="num_tc">Номер ТС:</label>
+        <input type="text" name="num_tc" id="num_tc" required>
+      </div>
+      <div class= "frm">
+        <label for="num_pric">Номер прицепа:</label>
+        <input type="text" name="num_pric" id="num_pric">
+      </div>
+      <div class= "frm">
+        <label for="size_tc">Размер ТС</label>
+        <select name="size_tc" id="size_tc">
+          <option value="">Выберите размер ТС</option>
+          <option value="10">10</option>
+          <option value="17">17</option>
+          <option value="20">20</option>
+          <option value="24">24</option>
+        </select>
+      </div>
+      <div class= "frm">
+        <label for="num_plomb">Пломба:</label>
+        <input type="text" name="num_plomb" id="num_plomb">
+      </div>
+      <div class= "frm">
+        <label for="cont_num">Контейнер</label>
+        <input type="text" name="cont_num" id="cont_num">
+      </div>
+      <div class= "frm_full">
+        <label for="remark">Примечания</label>
+        <input type="text" name="remark" id="remark">
+      </div>
+      <button type="submit" class= "btn_form">Добавить бланк</button>
+    </form>
+  </div>
+  <!-- Модальные окна  -->
+  <section class="frm_posted modal modal-dialog" >
+    <div class="modal-header-decor"></div>
+    <h2 class="modal-center-container">Форма успешно отправлена</h2>
+    <button type="button" name="close-button" class="modal-close modal-close-button">Закрыть окно</button>
+    <div class="modal-footer">
+      <div class="modal-center-container modal-footer-buttons">
+        <a src="index.html" class="btn_form go-to-main-paige modal-close-button">Продолжить</a>
+      </div>
+    </div>
+  </section>
+  <script async src="js/form.js"></script>	
+</body>
+</html>
